@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Blog</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">Techbizz</a>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                    <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome Techbizz Blog</h1>
+                <p>Thoughts, stories, and ideas from my journey</p>
+            </div>
+        </section>
+
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2>Latest Blogs</h2>
+                <div class="blog-posts">
+                   
+                  <!-- Blog Post 1 -->
+                    <article class="blog-post">
+                        <img src="/image/adil-sattarov-FKt2Nktzalc-unsplash.jpg" alt="Blog post thumbnail">
+                        <div class="post-content">
+                            <h3><a href="post1.html">How to Apply for an Azerbaijan Visit Visa from Pakistan (2025)</a></h3>
+                            <p class="post-meta">Posted on January 30, 2025 by Author</p>
+                            <p class="post-excerpt">Azerbaijan has become one of the most popular travel destinations for Pakistani tourists in recent years.</p>
+                            <a href="/post1.html" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+
+                   
+                   
+                    <!-- Blog Post 2 -->
+                    <article class="blog-post">
+                        <img src="/image/maanoj-ramchandani-RlSFvIxEDIA-unsplash.jpg" alt="Blog post thumbnail">
+                        <div class="post-content">
+                            <h3><a href="post2.html">Step-by-Step Process for Azerbaijan Visit Visa Application</a></h3>
+                            <p class="post-meta">Posted on February 3, 2024 by Author</p>
+                            <p class="post-excerpt">In this post, I share my journey learning web development, the resources that helped me the most, and some tips for beginners who are just starting out in this field.</p>
+                            <a href="post2.html" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+
+                    
+                    <!-- Blog Post 3 -->
+                    <article class="blog-post">
+                        <img src="/image/jae-f30GLiuH3qw-unsplash.jpg" alt="Blog post thumbnail">
+                        <div class="post-content">
+                            <h3><a href="/post3.html">Azerbaijan Visit Visa – Easy E-Visa Process for Tourists</a></h3>
+                            <p class="post-meta">Posted on March 10, 2024 by Author</p>
+                            <p class="post-excerpt">Azerbaijan, the land of fire, has become one of the most attractive destinations for tourists worldwide</p>
+                            <a href="/post3.html" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 My Personal Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+
+
+
+<script>
+// assets/js/script.js
+
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navList = document.querySelector('.nav-list');
+    
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            
+            // Animate hamburger icon
+            const spans = this.querySelectorAll('span');
+            if (navList.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    }
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
